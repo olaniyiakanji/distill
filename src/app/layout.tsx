@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "distill",
-  description: "Save any article. Get a TL;DR, key quotes, and auto-tags from Claude.",
+  description: "Save any article. Get an AI-generated TL;DR and auto-tags.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,10 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <footer className="mt-16 pt-6 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-500">
             Powered by{" "}
             <a
-              href="https://www.anthropic.com/claude"
+              href="https://ai.google.dev/gemini-api"
               className="underline hover:text-neutral-900 dark:hover:text-neutral-100"
             >
-              Claude
+              Gemini
             </a>
             . Source on{" "}
             <a
