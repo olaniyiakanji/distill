@@ -11,7 +11,7 @@ A minimal, self-hosted "read-it-later" app. Save any URL and get a Claude-genera
 
 - Next.js 15 (App Router, Server Actions)
 - TypeScript, Tailwind CSS
-- Postgres via [`@vercel/postgres`](https://vercel.com/docs/storage/vercel-postgres) (Neon compatible)
+- Postgres via [Neon serverless driver](https://neon.tech/docs/serverless/serverless-driver) (Vercel-native)
 - Drizzle ORM + Drizzle Kit for migrations
 - [`@mozilla/readability`](https://github.com/mozilla/readability) + JSDOM for article extraction
 - Anthropic SDK, `claude-haiku-4-5` for summaries and tags
@@ -20,9 +20,9 @@ A minimal, self-hosted "read-it-later" app. Save any URL and get a Claude-genera
 
 1. **Fork this repo** (or use it as a template).
 2. **Import into Vercel** — [vercel.com/new](https://vercel.com/new), point it at your fork.
-3. **Attach a Postgres store** in the Vercel dashboard → Storage tab. Vercel injects `POSTGRES_URL` automatically.
+3. **Attach a Neon Postgres store** in the Vercel dashboard → Storage tab. Vercel injects `DATABASE_URL` (and legacy `POSTGRES_URL`) automatically.
 4. **Add your Anthropic key** as `ANTHROPIC_API_KEY` in Environment Variables.
-5. **Run the migration once**: from your local checkout with the same `POSTGRES_URL`, run `npm run db:push`.
+5. **Run the migration once**: from your local checkout with the same `DATABASE_URL`, run `npm run db:push`.
 6. Done. Every deploy after that is automatic on push.
 
 ## Local development
@@ -31,7 +31,7 @@ A minimal, self-hosted "read-it-later" app. Save any URL and get a Claude-genera
 git clone https://github.com/olaniyiakanji/distill
 cd distill
 npm install
-cp .env.example .env.local     # fill in ANTHROPIC_API_KEY and POSTGRES_URL
+cp .env.example .env.local     # fill in ANTHROPIC_API_KEY and DATABASE_URL
 npm run db:push                # create tables
 npm run dev
 ```
