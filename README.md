@@ -23,8 +23,7 @@ A minimal, self-hosted "read-it-later" app. Save any URL and get an AI-generated
 2. **Import into Vercel** — [vercel.com/new](https://vercel.com/new), point it at your fork.
 3. **Attach a Neon Postgres store** in the Vercel dashboard → Storage tab. Vercel injects `DATABASE_URL` (and legacy `POSTGRES_URL`) automatically.
 4. **Add your Gemini key** as `GEMINI_API_KEY` in Environment Variables. Grab one for free at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
-5. **Run the migration once**: from your local checkout with the same `DATABASE_URL`, run `npm run db:push`.
-6. Done. Every deploy after that is automatic on push.
+5. Done. Migrations run automatically as part of every Vercel build (see `scripts/migrate.mjs`).
 
 ## Local development
 

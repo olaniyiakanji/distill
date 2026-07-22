@@ -5,11 +5,12 @@
   "description": "Self-hosted read-it-later with AI summaries, powered by Claude.",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run db:migrate && next build",
     "start": "next start",
     "lint": "next lint",
-    "db:push": "drizzle-kit push",
+    "db:migrate": "node scripts/migrate.mjs",
     "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
